@@ -33,14 +33,20 @@ public abstract class CustomHead implements Listener{
 	}
 	
 	public void activate(Player p) {
+		if (HeadsManager.activatedHead.containsKey(p)) {
+			CustomHead h = HeadsManager.activatedHead.get(p);
+			p.getInventory().setItemInMainHand(h.build());
+			HeadsManager.activatedHead.remove(p);
+		} else p.getInventory().setItemInMainHand(null);
 		HeadsManager.activatedHead.put(p, this);
-		p.getInventory().setItemInMainHand(null);
+		
 	}
 	public void desactivate(Player p) {
 		HeadsManager.activatedHead.remove(p);
 	}
 	
-	public void isActivated(Player p){
+	public boolean isActivated(Player p){
+		return HeadsManager.activatedHead.containsKey(p) && this.equals(HeadsManager.activatedHead.get(p));
 	}
 	
 	@Override
@@ -54,7 +60,7 @@ public abstract class CustomHead implements Listener{
 	public ItemStack build() {
 		ItemStack itemStack = new ItemStack(Material.SKULL_ITEM, 1, (byte) 3);
 		SkullMeta itemMeta = (SkullMeta) itemStack.getItemMeta();
-		itemMeta.setDisplayName(name.replaceAll("&", "ยง"));
+		itemMeta.setDisplayName(name.replaceAll("&", "ง"));
 		itemMeta.setOwner(headName);
 		if (lore != null) itemMeta.setLore(lore);
 		itemStack.setItemMeta(itemMeta);

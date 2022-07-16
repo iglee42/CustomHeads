@@ -34,7 +34,7 @@ public class HeadsManager implements Listener {
 		if (event.getItem().getType() == Material.SKULL_ITEM) {
 			CustomHead h = null;
 			for (CustomHead head : customHead.values()) {
-				String hn = head.getName().replaceAll("&", "ยง");
+				String hn = head.getName().replaceAll("&", "ง");
 				if (event.getItem().getItemMeta().getDisplayName().equals(hn)) {
 					h = head;
 				}
