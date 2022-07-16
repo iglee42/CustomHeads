@@ -12,16 +12,21 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.Plugin;
 
+/*
+ * @author iglee42
+ */
 public class HeadsManager implements Listener {
 	
 	public static Map<String,CustomHead> customHead = new HashMap<>();
 	public static Map<Player,CustomHead> activatedHead = new HashMap<>();
+	private Plugin plugin;
 	
-	public HeadsManager(Plugin plugin) {
+	private void register(Plugin plugin) {
+		this.plugin = plugin;
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
 
-	public static void addHead(CustomHead head,Plugin plugin) {
+	public void addHead(CustomHead head) {
 		Bukkit.getPluginManager().registerEvents(head, plugin);
 	}
 	

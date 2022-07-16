@@ -10,6 +10,10 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
+/*
+ * @author iglee42
+ */
+
 public abstract class CustomHead implements Listener{
 	
 	private String name,headName;
