@@ -79,5 +79,5 @@ public void onBlockBreak(BlockBreakEvent event){
 
 To finish you must register head
 
-> headRegister.addHead(head)
+> headRegister.addHead(new TestHead());
 
