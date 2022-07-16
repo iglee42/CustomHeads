@@ -36,7 +36,7 @@ public abstract class CustomHead implements Listener{
 		if (HeadsManager.activatedHead.containsKey(p)) {
 			CustomHead h = HeadsManager.activatedHead.get(p);
 			p.getInventory().setItemInMainHand(h.build());
-			HeadsManager.activatedHead.remove(p);
+			h.desactivate(p);
 		} else p.getInventory().setItemInMainHand(null);
 		HeadsManager.activatedHead.put(p, this);
 		
