@@ -7,11 +7,12 @@ This is 2 classes to create heads with custom effects for minecraft plugin.
 -Add classes to your plugin java project
 
 -In your onEnable method you need to add :
-> new HeadsManager()
+> HeadsManager headManager = new HeadsManager();
+> headManager.register();
 
 **Create Custom Head**
 
--You must create a class **extends CustomHead** and **implement Listener**
+You must create a class **extends CustomHead** and **implement Listener**
 
 ```Java
 public class TestHead extends CustomHead implements Listener {
@@ -19,7 +20,7 @@ public class TestHead extends CustomHead implements Listener {
 }
 ```
 
--You must add constructor like this 
+You must add constructor like this 
 
 ```Java
 public TestHead(){
@@ -28,11 +29,11 @@ public TestHead(){
 }
 ```
 
--You can redefine methods :
+You can redefine methods :
   
-  -activate
+  - activate() called when player use the head (right click)
   
-  -desactivate
+  - desactivate() called when player finish use the head ( called when an other head is already activated)
  
  Example:
  ```Java
@@ -49,7 +50,33 @@ public TestHead(){
  }
  ```
  
- Note : super.activate() & super.desactivate must be present if you rewrite methods !
+ Note : super.activate() & super.desactivate() must be present if you rewrite methods !
  
+ Methods are at your disposal :
+ 
+ - isActivated(player) return if the head is activated for the player
 
+ - getName() return the name of the head
+
+ - getHeadName() return the name of the player with the skin of the head
+
+ - build() return the itemstack of the head
+ 
+You can use events of bukkit in your head
+
+Example :
+```Java
+@EventHandler
+public void onBlockBreak(BlockBreakEvent event){
+ if (event.getBlock().getType() == Material.TNT){
+  CustomHead h = HeadsManager.activatedHead.get(event.getPlayer());
+  h.desactivate(event.getPlayer());
+  event.getBlock().getLocation().getWorld().createExplosion(event.getBlock().getLocation(),10.0f);
+ }
+}
+```
+
+To finish you must register head
+
+> headRegister.addHead(head)
 
