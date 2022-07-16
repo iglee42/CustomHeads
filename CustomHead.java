@@ -1,6 +1,7 @@
 package fr.iglee42.customheads;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Material;
@@ -22,6 +23,10 @@ public abstract class CustomHead implements Listener{
 		this.name = name;
 		this.headName = headName;
 		HeadsManager.customHead.put(name, this);
+	}
+	
+	public void setLore(String... lore) {
+		this.lore = Arrays.asList(lore);
 	}
 
 	public String getName() {
