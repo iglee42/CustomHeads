@@ -1,4 +1,4 @@
-package customheads;
+package fr.iglee42.customheads;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +40,9 @@ public abstract class CustomHead implements Listener{
 		HeadsManager.activatedHead.remove(p);
 	}
 	
+	public void isActivated(Player p){
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof CustomHead)) return false;
@@ -51,7 +54,7 @@ public abstract class CustomHead implements Listener{
 	public ItemStack build() {
 		ItemStack itemStack = new ItemStack(Material.SKULL_ITEM, 1, (byte) 3);
 		SkullMeta itemMeta = (SkullMeta) itemStack.getItemMeta();
-		itemMeta.setDisplayName(name.replaceAll("&", "ง"));
+		itemMeta.setDisplayName(name.replaceAll("&", "ยง"));
 		itemMeta.setOwner(headName);
 		if (lore != null) itemMeta.setLore(lore);
 		itemStack.setItemMeta(itemMeta);
