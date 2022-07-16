@@ -25,7 +25,7 @@ You must add constructor like this
 
 ```Java
 public TestHead(){
- super("test",          "iglee42")
+ super("test",          "iglee42");
  //   Name of the head | Name of the player for the head skin
 }
 ```
