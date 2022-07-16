@@ -1,4 +1,4 @@
-package customheads;
+package fr.iglee42.customheads;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +34,7 @@ public class HeadsManager implements Listener {
 		if (event.getItem().getType() == Material.SKULL_ITEM) {
 			CustomHead h = null;
 			for (CustomHead head : customHead.values()) {
-				String hn = head.getName().replaceAll("&", "ง");
+				String hn = head.getName().replaceAll("&", "ยง");
 				if (event.getItem().getItemMeta().getDisplayName().equals(hn)) {
 					h = head;
 				}
