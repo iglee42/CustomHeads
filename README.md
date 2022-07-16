@@ -8,6 +8,7 @@ This is 2 classes to create heads with custom effects for minecraft plugin.
 
 -In your onEnable method you need to add :
 > HeadsManager headManager = new HeadsManager();
+
 > headManager.register();
 
 **Create Custom Head**
