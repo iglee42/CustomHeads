@@ -2,7 +2,7 @@
  
 This is 2 classes to create heads with custom effects for minecraft plugin.
 
-## Use
+## How to Use
 
 -Add classes to your plugin java project
 
